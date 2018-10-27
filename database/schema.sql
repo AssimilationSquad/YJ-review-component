@@ -21,3 +21,5 @@ CREATE TABLE IF NOT EXISTS Reviews_tbl (
   PRIMARY KEY (Review_id),
   FOREIGN KEY (User_id) REFERENCES Users_tbl (User_id)
 );
+
+ALTER TABLE Reviews_tbl ADD FULLTEXT (Body);
