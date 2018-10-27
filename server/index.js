@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const seedUsers = require('../database/seedUsers.js');
-const seedReviews = require('../database/seedReviews.js');
+const db = require('../database/index.js');
 
 const app = express();
 const port = 3002;

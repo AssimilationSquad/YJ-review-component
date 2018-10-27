@@ -1,13 +1,6 @@
 const mysql = require('mysql');
 const faker = require('faker');
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'yukimysql',
-  database: 'Reviews_db',
-});
-
+const connection = require('../database/index.js');
 
 const insertReview = function insertReview(homeID, userID) {
   const reviewDate = faker.date.between('2015-01-01', '2018-10-26');
@@ -20,13 +13,16 @@ const insertReview = function insertReview(homeID, userID) {
 
 
 const seedReviews = function seedReviews(n) {
-  connection.connect();
   for (let i = 1; i <= n; i += 1) {
-    insertReview(i, i);
+    const numReviews = Math.ceil(Math.random() * 10);
+    for (let j = 1; j <= numReviews; j += 1) {
+      const randomUser = Math.ceil(Math.random() * 50);
+      insertReview(i, randomUser);
+    }
   }
   connection.end();
 };
 
-seedReviews(50);
+seedReviews(100);
 
 module.exports = seedReviews;

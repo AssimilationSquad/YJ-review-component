@@ -1,13 +1,6 @@
 const faker = require('faker');
 const mysql = require('mysql');
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'yukimysql',
-  database: 'Reviews_db',
-});
-
+const connection = require('../database/index.js');
 
 const insertUser = function insertUser() {
   const firstName = faker.name.firstName();
@@ -18,7 +11,6 @@ const insertUser = function insertUser() {
 };
 
 const seedUsers = function seedUsers(n) {
-  connection.connect();
   for (let i = 0; i < n; i += 1) {
     insertUser();
   }
