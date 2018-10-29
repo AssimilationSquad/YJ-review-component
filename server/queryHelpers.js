@@ -15,7 +15,6 @@ const getReviews = function getReviews(homeID, cb) {
       }
     },
   );
-  console.log('I got a request to get reviews!');
 };
 
 const updateFlags = function updateFlags(reviewID, cb) {
@@ -31,7 +30,6 @@ const updateFlags = function updateFlags(reviewID, cb) {
       }
     },
   );
-  console.log('I got a request to add a flag!');
 };
 
 const searchReviews = function searchReviews(homeID, keyword, cb) {
@@ -49,7 +47,6 @@ const searchReviews = function searchReviews(homeID, keyword, cb) {
       }
     },
   );
-  console.log('I got a request to search reviews for a keyword!');
 };
 
 module.exports = { getReviews, updateFlags, searchReviews };
