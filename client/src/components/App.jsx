@@ -5,7 +5,6 @@ import ReviewList from './ReviewList.jsx';
 class App extends React.Component {
   constructor() {
     super()
-    // this.state = {reviews: testData};
   }
   render() {
     return (
