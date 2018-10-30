@@ -12,14 +12,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/rooms/:homeid/reviews', (req, res) => {
+app.get('/rooms/:homeid/reviews', (req, res, next) => {
   const homeID = req.params.homeid;
   const { keyword } = req.query;
   // get data from database
   if (keyword === undefined) {
     helpers.getReviews(homeID, (err, results) => {
       if (err) {
-        throw err;
+        next(err);
       } else {
         res.status(200).send(results);
       }
@@ -27,7 +27,7 @@ app.get('/rooms/:homeid/reviews', (req, res) => {
   } else {
     helpers.searchReviews(homeID, keyword, (err, results) => {
       if (err) {
-        throw err;
+        next(err);
       } else {
         res.status(200).send(results);
       }
@@ -35,12 +35,12 @@ app.get('/rooms/:homeid/reviews', (req, res) => {
   }
 });
 
-app.patch('/rooms/:homeid/reviews/:reviewid', (req, res) => {
+app.patch('/rooms/:homeid/reviews/:reviewid', (req, res, next) => {
   const reviewID = req.params.reviewid;
   // update database
   helpers.updateFlags(reviewID, (err) => {
     if (err) {
-      throw err;
+      next(err);
     } else {
       res.status(200).send('flag recorded!');
     }
