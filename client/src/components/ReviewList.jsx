@@ -1,5 +1,5 @@
-const React = require('react');
-const ReviewListEntry = require('./ReviewListEntry.jsx');
+import React from 'react';
+import ReviewListEntry from './ReviewListEntry.jsx';
 
 class ReviewList extends React.Component {
   constructor(props) {
@@ -21,4 +21,4 @@ class ReviewList extends React.Component {
   }
 }
 
-module.exports = ReviewList;
+export default ReviewList;

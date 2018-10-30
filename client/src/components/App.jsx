@@ -1,6 +1,6 @@
-const React = require('react');
-const testData = require('../fakedata.js');
-const ReviewList = require('./ReviewList.jsx');
+import React from 'react';
+import testData from '../fakedata.js';
+import ReviewList from './ReviewList.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -17,4 +17,4 @@ class App extends React.Component {
   }
 }
 
-module.exports = App;
+export default App;
