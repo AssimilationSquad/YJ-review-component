@@ -15,9 +15,14 @@ CREATE TABLE IF NOT EXISTS Reviews_tbl (
   Home_id INT,
   User_id INT,
   Review_date DATE,
-  Stars INT,
-  Flags INT,
   Body TEXT,
+  Cleanliness_stars INT,
+  Communication_stars INT,
+  Accuracy_stars INT,
+  Location_stars INT,
+  Checkin_stars INT,
+  Value_stars INT,
+  Flags INT,
   PRIMARY KEY (Review_id),
   FOREIGN KEY (User_id) REFERENCES Users_tbl (User_id)
 );

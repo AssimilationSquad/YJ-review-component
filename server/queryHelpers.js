@@ -3,7 +3,7 @@ const connection = require('../database/index.js');
 const getReviews = function getReviews(homeID, cb) {
   const params = [homeID];
   connection.query(
-    `SELECT Review_id, First_name, Review_date, Body, Stars FROM Users_tbl 
+    `SELECT Review_id, First_name, Review_date, Body, Cleanliness_stars, Communication_stars, Accuracy_stars, Location_stars, Checkin_stars, Value_stars, Thumbnail_url FROM Users_tbl 
     INNER JOIN Reviews_tbl ON Users_tbl.User_id = Reviews_tbl.User_id 
     WHERE Home_id = ? ORDER BY Review_date DESC`,
     params,
@@ -35,7 +35,7 @@ const updateFlags = function updateFlags(reviewID, cb) {
 const searchReviews = function searchReviews(homeID, keyword, cb) {
   const params = [keyword, homeID];
   connection.query(
-    `SELECT Review_id, First_name, Review_date, Body, Stars FROM Users_tbl 
+    `SELECT Review_id, First_name, Review_date, Body, Stars, Thumbnail_url FROM Users_tbl 
     INNER JOIN Reviews_tbl ON Users_tbl.User_id = Reviews_tbl.User_id 
     WHERE (MATCH(Body) AGAINST (?) && Home_id = ?) ORDER BY Review_date DESC`,
     params,

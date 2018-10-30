@@ -8,12 +8,12 @@ const app = express();
 const port = 3002;
 
 // app.use(express.static('../public'));
-app.use(express.static(__dirname + '/../client/dist/'));
+app.use(express.static(`${__dirname}/../client/dist/`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/home/:homeid/reviews', (req, res) => {
+app.get('/rooms/:homeid/reviews', (req, res) => {
   const homeID = req.params.homeid;
   const keyword = req.query.keyword || undefined;
   // get data from database
@@ -28,7 +28,7 @@ app.get('/home/:homeid/reviews', (req, res) => {
   }
 });
 
-app.patch('/home/:homeid/reviews/:reviewid', (req, res) => {
+app.patch('/rooms/:homeid/reviews/:reviewid', (req, res) => {
   const reviewID = req.params.reviewid;
   // update database
   helpers.updateFlags(reviewID, () => {
