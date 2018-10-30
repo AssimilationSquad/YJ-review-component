@@ -9,7 +9,7 @@ const getReviews = function getReviews(homeID, cb) {
     params,
     (error, results) => {
       if (error) {
-        throw error;
+        cb(error);
       } else {
         cb(results);
       }
@@ -24,7 +24,7 @@ const updateFlags = function updateFlags(reviewID, cb) {
     params,
     (error, results) => {
       if (error) {
-        throw error;
+        cb(error);
       } else {
         cb(results);
       }
@@ -41,7 +41,7 @@ const searchReviews = function searchReviews(homeID, keyword, cb) {
     params,
     (error, results) => {
       if (error) {
-        throw error;
+        cb(error);
       } else {
         cb(results);
       }
