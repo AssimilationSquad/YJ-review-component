@@ -7,6 +7,10 @@ const helpers = require('./queryHelpers.js');
 const app = express();
 const port = 3002;
 
+<<<<<<< HEAD
+=======
+app.use(express.static(path.join(__dirname, '../', 'client', 'dist')));
+>>>>>>> Working on API call for search
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -30,8 +34,13 @@ app.get('/rooms/:homeid/reviews', (req, res) => {
       });
     });
   } else {
-    helpers.searchReviews(homeID, keyword, (searchRes) => {
-      res.status(200).json(searchRes);
+    console.log("Looking for ", keyword);
+    helpers.searchReviews(homeID, keyword, (err, results) => {
+      if (err) {
+        next(err);
+      } else {
+        res.status(200).json(results);
+      }
     });
   }
 });
