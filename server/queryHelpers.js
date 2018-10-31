@@ -49,4 +49,22 @@ const searchReviews = function searchReviews(homeID, keyword, cb) {
   );
 };
 
-module.exports = { getReviews, updateFlags, searchReviews };
+const getRatings = function getRatings(homeID, cb) {
+  const params = [homeID];
+  connection.query(
+    `SELECT AVG(Cleanliness_stars) 'Avg_clean', AVG(Communication_stars) 'Avg_comm', AVG(Accuracy_stars) 'Avg_acc', AVG(Location_stars) 'Avg_loc', AVG(Checkin_stars) 'Avg_check', AVG(Value_stars) 'Avg_val'
+    FROM Reviews_tbl WHERE Home_id=?`,
+    params,
+    (error, results) => {
+      if (error) {
+        cb(error);
+      } else {
+        cb(results);
+      }
+    },
+  );
+};
+
+module.exports = {
+  getReviews, updateFlags, searchReviews, getRatings,
+};

@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const db = require('../database/index.js');
 const helpers = require('./queryHelpers.js');
 
 const app = express();
@@ -12,38 +13,33 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/rooms/:homeid/reviews', (req, res, next) => {
+app.get('/rooms/:homeid/reviews', (req, res) => {
   const homeID = req.params.homeid;
-  const { keyword } = req.query;
+  const keyword = req.query.keyword || undefined;
+  const results = {};
   // get data from database
   if (keyword === undefined) {
-    helpers.getReviews(homeID, (err, results) => {
-      if (err) {
-        next(err);
-      } else {
+    helpers.getReviews(homeID, (result) => {
+      results.reviews = result;
+      helpers.getRatings(homeID, (result) => {
+        results.ratings = result;
+        console.log(results);
         res.status(200).send(results);
-      }
+      });
     });
   } else {
-    helpers.searchReviews(homeID, keyword, (err, results) => {
-      if (err) {
-        next(err);
-      } else {
-        res.status(200).send(results);
-      }
+    helpers.searchReviews(homeID, keyword, (results) => {
+      res.status(200).send(results);
     });
   }
 });
 
-app.patch('/rooms/:homeid/reviews/:reviewid', (req, res, next) => {
+app.patch('/rooms/:homeid/reviews/:reviewid', (req, res) => {
   const reviewID = req.params.reviewid;
   // update database
-  helpers.updateFlags(reviewID, (err) => {
-    if (err) {
-      next(err);
-    } else {
-      res.status(200).send('flag recorded!');
-    }
+  helpers.updateFlags(reviewID, () => {
+    console.log('Flag added to review: ', reviewID);
+    res.status(200).send("flag recorded!");
   });
 });
 
