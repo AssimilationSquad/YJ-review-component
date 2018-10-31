@@ -1,16 +1,11 @@
-const React = require('react');
+import React from 'react';
+import ReviewListEntry from './ReviewListEntry.jsx';
 
-class ReviewList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div>
-        <h1>All the reviews go here!</h1>
-      </div>
-    )
-  }
+function ReviewList(props) {
+  let children = props.reviews.map((element) => {
+    return <ReviewListEntry revInfo={element} key={element.Review_id} />
+  });
+  return <div id="revList">{children}</div>
 }
 
-module.exports = ReviewList;
+export default ReviewList;
