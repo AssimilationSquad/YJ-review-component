@@ -19,14 +19,14 @@ function StarRatings(props) {
       </div>
       <div className="table">
         <div className="col">
-          <StarRatingEntry key={"Acc"} category={"Accuracy"} stars={accuracy}/>
-          <StarRatingEntry key={"Comm"} category={"Communication"} stars={communication}/>
-          <StarRatingEntry key={"Clean"} category={"Cleanliness"} stars={cleanliness}/>
+          <StarRatingEntry key="Acc" category="Accuracy" stars={accuracy}/>
+          <StarRatingEntry key="Comm" category="Communication" stars={communication}/>
+          <StarRatingEntry key="Clean" category="Cleanliness" stars={cleanliness}/>
         </div>
         <div className="col">
-          <StarRatingEntry key={"Loc"} category={"Location"}stars={location}/>
-          <StarRatingEntry key={"Check"} category={"Check-in"} stars={checkin}/>
-          <StarRatingEntry key={"Val"} category={"Value"} stars={value}/>
+          <StarRatingEntry key="Loc" category="Location" stars={location}/>
+          <StarRatingEntry key="Check" category="Check-in" stars={checkin}/>
+          <StarRatingEntry key="Val" category="Value" stars={value}/>
         </div>
       </div>
     </div>
