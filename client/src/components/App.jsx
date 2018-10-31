@@ -11,7 +11,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>This is my Reviews component!</h1>
-        <StarRatings ratings={testData.ratings} />
+        <StarRatings ratings={testData.ratings} numReviews={testData.reviews.length}/>
         <ReviewList reviews={testData.reviews} />
       </div>
     )
