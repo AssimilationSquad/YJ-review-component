@@ -11,42 +11,19 @@ function StarRatings(props) {
   let value = ratings.Avg_val;
 
   return (
-    <div>
-      <StarRatingEntry key={"Acc"} category={"Accuracy"} stars={accuracy}/>
-      <StarRatingEntry key={"Comm"} category={"Communication"} stars={communication}/>
-      <StarRatingEntry key={"Clean"} category={"Cleanliness"} stars={cleanliness}/>
-      <StarRatingEntry key={"Loc"} category={"Location"}stars={location}/>
-      <StarRatingEntry key={"Check"} category={"Check-in"} stars={checkin}/>
-      <StarRatingEntry key={"Val"} category={"Value"} stars={value}/>
+    <div className="table">
+      <div className="col">
+        <StarRatingEntry key={"Acc"} category={"Accuracy"} stars={accuracy}/>
+        <StarRatingEntry key={"Comm"} category={"Communication"} stars={communication}/>
+        <StarRatingEntry key={"Clean"} category={"Cleanliness"} stars={cleanliness}/>
+      </div>
+      <div className="col">
+        <StarRatingEntry key={"Loc"} category={"Location"}stars={location}/>
+        <StarRatingEntry key={"Check"} category={"Check-in"} stars={checkin}/>
+        <StarRatingEntry key={"Val"} category={"Value"} stars={value}/>
+      </div>
     </div>
   )
 }
-
-// class StarRatings extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     console.log("Star ratings props: ", this.props);
-//     let accuracy = props.accuracy;
-//     let communication = props.communication;
-//     let cleanliness = props.cleanliness;
-//     let location = props.location;
-//     let checkin = props.checkin;
-//     let value = props.value;
-
-//     return (
-//       <div>
-//         <StarRatingEntry key={"Accuracy"} stars={stars}/>
-//         <StarRatingEntry key={"Communication"} stars={stars}/>
-//         <StarRatingEntry key={"Cleanliness"} stars={stars}/>
-//         <StarRatingEntry key={"Locaiton"} stars={stars}/>
-//         <StarRatingEntry key={"Check-in"} stars={stars}/>
-//         <StarRatingEntry key={"Value"} stars={stars}/>
-//       </div>
-//     )
-//   }
-// }
 
 export default StarRatings;
