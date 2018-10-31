@@ -10,4 +10,4 @@ const sampleReviews = [{
 Review_id: 4, First_name: 'Isidro', 'Review_date': '2015-02-24T08:00:00.000Z', Body: 'Perferendis doloremque magnam voluptas voluptates cum incidunt expedita ipsam perferendis. Sint vitae neque ullam velit nihil corrupti molestiae accusamus. Exercitationem eum asperiores impedit est aliquam animi nobis.', Stars: 5, 'Thumbnail_url': 'https://s3.amazonaws.com/uifaces/faces/twitter/lewisainslie/128.jpg' 
 }];
 
-module.exports = sampleReviews;
+export default sampleReviews;
