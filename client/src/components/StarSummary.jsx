@@ -20,7 +20,7 @@ function StarSummary(props) {
   }
   
   return (
-    <div>
+    <div className="star-summary">
       {props.numReviews} Reviews <span>{stars}</span>
     </div>
   )

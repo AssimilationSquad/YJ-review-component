@@ -20,7 +20,7 @@ function RatingEntry(props) {
     }
 
     return (
-      <div>
+      <div className="star-category">
         <span>{props.category}</span>
         <div>{stars}</div>
       </div>
