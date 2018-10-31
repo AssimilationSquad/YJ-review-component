@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>This is my Reviews component!</h1>
-        <ReviewList reviews={testData}/>
+        <ReviewList reviews={testData.reviews} />
       </div>
     )
   }
