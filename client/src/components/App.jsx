@@ -37,8 +37,18 @@ class App extends React.Component {
     })
   handleSearch(event) {
     let searchTerm = event.target.value;
+    let url = document.URL;
     console.log("Need to get reviews related to: ", searchTerm);
+    fetch(url, 
+    {
+      method: "GET"
+    })
+    .then(function(searchRes) {
+      console.log(JSON.stringify(searchRes))
+    }) 
   }
+
+
 }
 
 export default App;
