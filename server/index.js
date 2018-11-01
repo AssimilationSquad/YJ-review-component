@@ -7,10 +7,7 @@ const helpers = require('./queryHelpers.js');
 const app = express();
 const port = 3002;
 
-<<<<<<< HEAD
-=======
 app.use(express.static(path.join(__dirname, '../', 'client', 'dist')));
->>>>>>> Working on API call for search
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
