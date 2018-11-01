@@ -1,6 +1,7 @@
 import React from 'react';
 import StarRatingEntry from './StarRatingEntry.jsx';
 import StarSummary from './StarSummary.jsx';
+import SearchBar from './SearchBar.jsx';
 import styles from '../Styles/StarCategory.css';
 
 function StarRatings(props) {
@@ -17,6 +18,7 @@ function StarRatings(props) {
     <div>
       <div>
         <StarSummary className="star-summary" average={average} numReviews = {props.numReviews} className={styles.summary}/>
+        <SearchBar handler={props.handler}/>
       </div>
       <div className="table" className={styles.table}>
         <div className="col" className={styles.col}>

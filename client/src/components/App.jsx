@@ -1,7 +1,6 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import StarRatings from './StarRatings.jsx';
-import SearchBar from './SearchBar.jsx';
 import styles from '../Styles/App.css';
 
 class App extends React.Component {
@@ -18,8 +17,7 @@ class App extends React.Component {
     if (this.state.filtered_reviews.length === 0 || this.state.filter === '') {
       return (
         <div>
-          <SearchBar handler={this.handleSearch.bind(this)}/>
-          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
           <div className="divider" className={styles.divider}></div>
           <ReviewList reviews={this.state.reviews} />
         </div>
@@ -27,8 +25,7 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <SearchBar handler={this.handleSearch.bind(this)}/>
-          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
           <p>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
           <ReviewList reviews={this.state.filtered_reviews} />
         </div>
