@@ -3,7 +3,7 @@ import StarRatingEntry from './StarRatingEntry.jsx';
 import StarSummary from './StarSummary.jsx';
 
 function StarRatings(props) {
-  const ratings = props.ratings[0];
+  const ratings = props.ratings.length > 0? props.ratings[0] : {};
   let accuracy = ratings.Avg_acc;
   let communication = ratings.Avg_comm;
   let cleanliness = ratings.Avg_clean;
