@@ -1,19 +1,22 @@
 import React from 'react';
-import path from 'path';
+import styles from '../Styles/Search.css';
 
 function SearchBar(props) {
   console.log("Search bar props are ", props);
   return (
-    <form className="search-input">
-      <input type="text"
-       id="search" 
-       name="searchBar" 
-       pattern="[A-Za-z]+" 
-       placeholder="Search reviews" 
-       required 
-       onKeyUp={(event) => {props.handler(event)}}
-      />
-    </form>
+    <div className={styles.search}>
+      <form className="search-input">
+        {/* <i className="material-icons">search</i> */}
+        <input type="text"
+        id="search" 
+        name="searchBar" 
+        pattern="[A-Za-z]+" 
+        placeholder="Search reviews" 
+        required 
+        onKeyUp={(event) => {props.handler(event)}}>
+        </input>
+      </form>
+    </div>
   )
 }
 

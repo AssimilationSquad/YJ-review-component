@@ -1,0 +1,30 @@
+.common {
+  color:"#484848";
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.name {
+  composes: common; 
+  font-weight: 600;
+  font-size: "16px";
+  line-height:"22px";
+}
+
+.date {
+  composes: common; 
+  font-size: "14px";
+  line-height: "18px";
+  display:inline;
+  font-weight: normal;
+}
+
+.reviewBody {
+  composes: common; 
+  font-size: "16px";
+  line-height: "22px";
+  font-weight: normal;
+}
+
+img {
+  border-radius: 50%;
+}

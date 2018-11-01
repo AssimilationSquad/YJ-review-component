@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../Styles/StarCategory.css';
 
 function StarSummary(props) {
   let stars=[];
@@ -21,7 +22,7 @@ function StarSummary(props) {
   
   return (
     <div className="star-summary">
-      {props.numReviews} Reviews <span>{stars}</span>
+      <span className={styles.summary}>{props.numReviews} Reviews</span> <span className={styles.fa}>{stars}</span>
     </div>
   )
 }

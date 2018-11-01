@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../Styles/StarCategory.css';
 
 function RatingEntry(props) {
     let stars=[];
@@ -16,13 +17,13 @@ function RatingEntry(props) {
     } 
 
     for (let j = 0; j < blankStars; j += 1) {
-      stars.push(<i key={baseRating + j + 1} className="fa fa-star-o" ></i>);
+      stars.push(<i key={baseRating + j + 1} className="fa fa-star-o"></i>);
     }
 
     return (
       <div className="star-category">
         <span>{props.category}</span>
-        <div>{stars}</div>
+        <span className={styles.fa}>{stars}</span>
       </div>
     )
 }

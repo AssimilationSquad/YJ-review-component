@@ -1,0 +1,25 @@
+.common {
+  composes: common from "./Reviews.css";
+}
+
+.fa {
+  composes: common;
+  color: #008489;
+}
+
+.table {
+  composes: common;
+  display: flex;
+}
+
+.col {
+  composes: common;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary {
+  composes: common;
+  font-size: "20px";
+  line-height: "26px";
+}
