@@ -7,17 +7,20 @@ const helpers = require('./queryHelpers.js');
 const app = express();
 const port = 3002;
 
-// app.use(express.static('../public'));
-app.use(express.static(path.join(__dirname, '../', 'client', 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.get('/rooms/:homeid', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 app.get('/rooms/:homeid/reviews', (req, res) => {
   const homeID = req.params.homeid;
   const keyword = req.query.keyword || undefined;
   const results = {};
-  // get data from database
+
   if (keyword === undefined) {
     helpers.getReviews(homeID, (result) => {
       results.reviews = result;
@@ -33,6 +36,7 @@ app.get('/rooms/:homeid/reviews', (req, res) => {
     });
   }
 });
+
 
 app.patch('/rooms/:homeid/reviews/:reviewid', (req, res) => {
   const reviewID = req.params.reviewid;
