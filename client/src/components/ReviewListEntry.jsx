@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../Styles/Reviews.css';
 
 function ReviewListEntry(props) {
   let review = props.revInfo;
@@ -8,13 +9,13 @@ function ReviewListEntry(props) {
   let preview = review.Body.slice(0, 140);
 
   return (
-    <div className="reviewListEntry">
-      <div className="userThumbnail">
+    <div className="reviewListEntry" >
+      <div className="userThumbnail" className={styles.img}>
         <img src={thumbnailUrl} height="48" weight="48"></img>
       </div>
-      <div className="name">{firstName}</div>
-      <div className="date">{date}</div>
-      <div className="reviewBody">{preview}</div>
+      <div className="name" className={styles.name}>{firstName}</div>
+      <div className="date" className={styles.date}>{date}</div>
+      <div className="reviewBody" className={styles.reviewBody}>{preview}</div>
     </div>
   )
 }

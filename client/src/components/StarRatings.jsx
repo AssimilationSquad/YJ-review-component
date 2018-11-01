@@ -1,6 +1,7 @@
 import React from 'react';
 import StarRatingEntry from './StarRatingEntry.jsx';
 import StarSummary from './StarSummary.jsx';
+import styles from '../Styles/StarCategory.css';
 
 function StarRatings(props) {
   const ratings = props.ratings.length > 0? props.ratings[0] : {};
@@ -15,15 +16,15 @@ function StarRatings(props) {
   return (
     <div>
       <div>
-        <StarSummary className="star-summary" average={average} numReviews = {props.numReviews}/>
+        <StarSummary className="star-summary" average={average} numReviews = {props.numReviews} className={styles.summary}/>
       </div>
-      <div className="table">
-        <div className="col">
+      <div className="table" className={styles.table}>
+        <div className="col" className={styles.col}>
           <StarRatingEntry key="Acc" category="Accuracy" stars={accuracy}/>
           <StarRatingEntry key="Comm" category="Communication" stars={communication}/>
           <StarRatingEntry key="Clean" category="Cleanliness" stars={cleanliness}/>
         </div>
-        <div className="col">
+        <div className="col" className={styles.col}>
           <StarRatingEntry key="Loc" category="Location" stars={location}/>
           <StarRatingEntry key="Check" category="Check-in" stars={checkin}/>
           <StarRatingEntry key="Val" category="Value" stars={value}/>

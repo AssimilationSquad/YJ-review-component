@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import StarRatings from './StarRatings.jsx';
 import SearchBar from './SearchBar.jsx';
+import styles from '../Styles/App.css';
 
 class App extends React.Component {
   constructor() {
@@ -19,6 +20,7 @@ class App extends React.Component {
         <div>
           <SearchBar handler={this.handleSearch.bind(this)}/>
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
+          <div className="divider" className={styles.divider}></div>
           <ReviewList reviews={this.state.reviews} />
         </div>
       )
