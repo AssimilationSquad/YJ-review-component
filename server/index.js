@@ -7,32 +7,35 @@ const helpers = require('./queryHelpers.js');
 const app = express();
 const port = 3002;
 
-// app.use(express.static('../public'));
-app.use(express.static(path.join(__dirname, '../', 'client', 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(express.static(path.join(__dirname, '../client/dist')));
+
+app.get('/rooms/:homeid', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 app.get('/rooms/:homeid/reviews', (req, res) => {
   const homeID = req.params.homeid;
-  const keyword = req.query.keyword || undefined;
+  const keyword = req.query.keyword;
   const results = {};
-  // get data from database
+
   if (keyword === undefined) {
     helpers.getReviews(homeID, (result) => {
       results.reviews = result;
-      helpers.getRatings(homeID, (result) => {
-        results.ratings = result;
-        console.log(results);
-        res.status(200).send(results);
+      helpers.getRatings(homeID, (result2) => {
+        results.ratings = result2;
+        res.status(200).json(results);
       });
     });
   } else {
-    helpers.searchReviews(homeID, keyword, (results) => {
-      res.status(200).send(results);
+    helpers.searchReviews(homeID, keyword, (searchRes) => {
+      res.status(200).json(searchRes);
     });
   }
 });
+
 
 app.patch('/rooms/:homeid/reviews/:reviewid', (req, res) => {
   const reviewID = req.params.reviewid;
