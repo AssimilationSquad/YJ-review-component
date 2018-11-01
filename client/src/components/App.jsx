@@ -8,17 +8,30 @@ class App extends React.Component {
     super()
     this.state = {
       reviews: [],
-      ratings: []
+      ratings: [],
+      filter: undefined,
+      filtered_reviews:[],
       }
   }
   render() {
-    return (
-      <div>
-        <SearchBar handler={this.handleSearch.bind(this)}/>
-        <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
-        <ReviewList reviews={this.state.reviews} />
-      </div>
-    )
+    if (this.state.filtered_reviews.length === 0) {
+      return (
+        <div>
+          <SearchBar handler={this.handleSearch.bind(this)}/>
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
+          <ReviewList reviews={this.state.reviews} />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <SearchBar handler={this.handleSearch.bind(this)}/>
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
+          <p>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
+          <ReviewList reviews={this.state.filtered_reviews} />
+        </div>
+      )
+    }
   }
 
   componentDidMount() {
@@ -39,15 +52,11 @@ class App extends React.Component {
 
   handleSearch(event) {
     let searchTerm = event.target.value;
-    let url = document.URL;
-    console.log("Need to get reviews related to: ", searchTerm);
-    fetch(url, 
-    {
-      method: "GET"
+    let filteredRev = this.state.reviews.filter(rev => rev.Body.toLowerCase().includes(searchTerm.toLowerCase()));
+    this.setState({
+      filter: searchTerm,
+      filtered_reviews: filteredRev,
     })
-    .then(function(searchRes) {
-      console.log(JSON.stringify(searchRes))
-    }) 
   }
 }
 

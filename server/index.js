@@ -19,7 +19,7 @@ app.get('/rooms/:homeid', (req, res) => {
 
 app.get('/rooms/:homeid/reviews', (req, res, next) => {
   const homeID = req.params.homeid;
-  const keyword = req.query.keyword;
+  const keyword = req.query.searchBar;
   const results = {};
 
   if (keyword === undefined) {
@@ -31,7 +31,6 @@ app.get('/rooms/:homeid/reviews', (req, res, next) => {
       });
     });
   } else {
-    console.log('Looking for ', keyword);
     helpers.searchReviews(homeID, keyword, (err, searchRes) => {
       if (err) {
         next(err);
@@ -47,7 +46,6 @@ app.patch('/rooms/:homeid/reviews/:reviewid', (req, res) => {
   const reviewID = req.params.reviewid;
   // update database
   helpers.updateFlags(reviewID, () => {
-    console.log('Flag added to review: ', reviewID);
     res.status(200).send("flag recorded!");
   });
 });
