@@ -2,6 +2,9 @@
   composes: common from "./Reviews.css";
 }
 
+.divider {
+  composes: divider from "../Styles/App.css";
+}
 .fa {
   composes: common;
   color: #008489;
@@ -10,12 +13,19 @@
 .table {
   composes: common;
   display: flex;
+  flex-direction: column;
 }
 
-.col {
+.row {
   composes: common;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+}
+
+.cell {
+  composes: common;
+  display: flex;
+  flex-grow: 1;
 }
 
 .summary {
