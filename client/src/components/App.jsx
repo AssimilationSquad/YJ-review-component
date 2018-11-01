@@ -35,6 +35,8 @@ class App extends React.Component {
         ratings: body.ratings,
       })
     })
+  }
+
   handleSearch(event) {
     let searchTerm = event.target.value;
     let url = document.URL;
@@ -47,8 +49,6 @@ class App extends React.Component {
       console.log(JSON.stringify(searchRes))
     }) 
   }
-
-
 }
 
 export default App;

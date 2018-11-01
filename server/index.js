@@ -17,7 +17,7 @@ app.get('/rooms/:homeid', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
-app.get('/rooms/:homeid/reviews', (req, res) => {
+app.get('/rooms/:homeid/reviews', (req, res, next) => {
   const homeID = req.params.homeid;
   const keyword = req.query.keyword;
   const results = {};
@@ -31,12 +31,12 @@ app.get('/rooms/:homeid/reviews', (req, res) => {
       });
     });
   } else {
-    console.log("Looking for ", keyword);
-    helpers.searchReviews(homeID, keyword, (err, results) => {
+    console.log('Looking for ', keyword);
+    helpers.searchReviews(homeID, keyword, (err, searchRes) => {
       if (err) {
         next(err);
       } else {
-        res.status(200).json(results);
+        res.status(200).json(searchRes);
       }
     });
   }
