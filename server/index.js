@@ -18,21 +18,20 @@ app.get('/rooms/:homeid', (req, res) => {
 
 app.get('/rooms/:homeid/reviews', (req, res) => {
   const homeID = req.params.homeid;
-  const keyword = req.query.keyword || undefined;
+  const keyword = req.query.keyword;
   const results = {};
 
   if (keyword === undefined) {
     helpers.getReviews(homeID, (result) => {
       results.reviews = result;
-      helpers.getRatings(homeID, (result) => {
-        results.ratings = result;
-        console.log(results);
-        res.status(200).send(results);
+      helpers.getRatings(homeID, (result2) => {
+        results.ratings = result2;
+        res.status(200).json(results);
       });
     });
   } else {
-    helpers.searchReviews(homeID, keyword, (results) => {
-      res.status(200).send(results);
+    helpers.searchReviews(homeID, keyword, (searchRes) => {
+      res.status(200).json(searchRes);
     });
   }
 });
