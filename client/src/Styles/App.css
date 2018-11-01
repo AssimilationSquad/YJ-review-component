@@ -1,0 +1,7 @@
+.divider {
+  flex-grow: 1;
+  border-bottom: 1px solid #EBEBEB;
+  margin: 5px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
