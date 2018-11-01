@@ -14,7 +14,7 @@ class App extends React.Component {
       }
   }
   render() {
-    if (this.state.filtered_reviews.length === 0) {
+    if (this.state.filtered_reviews.length === 0 || this.state.filter === '') {
       return (
         <div>
           <SearchBar handler={this.handleSearch.bind(this)}/>

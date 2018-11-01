@@ -11,7 +11,7 @@ function SearchBar(props) {
        pattern="[A-Za-z]+" 
        placeholder="Search reviews" 
        required 
-       onChange={(event) => {props.handler(event)}}
+       onKeyUp={(event) => {props.handler(event)}}
       />
     </form>
   )
