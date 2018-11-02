@@ -37,5 +37,10 @@ describe("LockScreen", () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
+  it ('renders a div that contains a button', () => {
+    const button = reviewListEntry().find("button");
+    expect(button.length).toBe(1);
+  });
+
 })
 
