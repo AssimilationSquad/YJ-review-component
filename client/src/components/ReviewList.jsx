@@ -1,11 +1,11 @@
 import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
-import styles from './Revlist.css';
+import styles from '../Styles/Revlist.css';
 
 function ReviewList(props) {
   let children = props.reviews.map((element) => {
     return (
-      <div key={element.Review_id} >
+      <div key={element.Review_id} className={styles.revlist}>
         <ReviewListEntry revInfo={element}/>
         <div className="divider" className={styles.divider}></div>
       </div>

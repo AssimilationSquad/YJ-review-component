@@ -5,3 +5,7 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
+
+.filter {
+  composes: common from "./Reviews.css";
+}

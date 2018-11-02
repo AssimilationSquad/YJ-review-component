@@ -1,3 +1,7 @@
 .divider {
   composes: divider from "../Styles/App.css";
 }
+
+.revlist {
+  margin: 0 5% 0 5%;
+}

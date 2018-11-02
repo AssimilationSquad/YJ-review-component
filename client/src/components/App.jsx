@@ -23,7 +23,7 @@ class App extends React.Component {
       )
     } else {
       return (
-        <div className="app" className={styles.app}>
+        <div className="app">
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
           <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
           <ReviewList reviews={this.state.filtered_reviews} />
