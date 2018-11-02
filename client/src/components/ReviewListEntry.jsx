@@ -9,7 +9,7 @@ function ReviewListEntry(props) {
   let firstName = review.First_name;
   let date = review.Review_date;
   let preview = isExpanded? review.Body: review.Body.slice(0, 140);
-  let buttonVisible = isExpanded? "hidden" : "visible";
+  let buttonVisible = (isExpanded || preview.length < 140)? "hidden" : "visible";
   return (
     <div className="reviewListEntry" >
       <div className="userThumbnail" className={styles.img}>
