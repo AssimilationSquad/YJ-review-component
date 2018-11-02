@@ -22,7 +22,7 @@ function StarSummary(props) {
   
   return (
     <div className="star-summary">
-      <span className={styles.summary}>{props.numReviews} Reviews</span> <span className={styles.fa}>{stars}</span>
+      <span className={styles.summary}>{props.numReviews} Reviews</span> <span className={styles.starsum}>{stars}</span>
     </div>
   )
 }

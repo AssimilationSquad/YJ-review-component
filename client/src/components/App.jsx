@@ -16,16 +16,16 @@ class App extends React.Component {
   render() {
     if (this.state.filtered_reviews.length === 0 || this.state.filter === '') {
       return (
-        <div>
+        <div className="app">
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
           <ReviewList reviews={this.state.reviews} />
         </div>
       )
     } else {
       return (
-        <div>
+        <div className="app" className={styles.app}>
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
-          <p>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
+          <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
           <ReviewList reviews={this.state.filtered_reviews} />
         </div>
       )

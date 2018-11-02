@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from '../Styles/Reviews.css';
+import moment from 'moment';
 
 function ReviewListEntry(props) {
   let review = props.revInfo;
@@ -14,7 +15,7 @@ function ReviewListEntry(props) {
         <img src={thumbnailUrl} height="48" weight="48"></img>
       </div>
       <div className="name" className={styles.name}>{firstName}</div>
-      <div className="date" className={styles.date}>{date}</div>
+      <div className="date" className={styles.date}>{moment(date).format("MMMM YYYY")}</div>
       <div className="reviewBody" className={styles.reviewBody}>{preview}</div>
     </div>
   )
