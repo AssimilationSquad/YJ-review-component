@@ -16,7 +16,7 @@ function ReviewListEntry(props) {
       </div>
       <div className="name" className={styles.name}>{firstName}</div>
       <div className="date" className={styles.date}>{moment(date).format("MMMM YYYY")}</div>
-      <div className="reviewBody" className={styles.reviewBody}>{preview}</div>
+      <div className="reviewBody" className={styles.reviewBody}>{preview}<button className={styles.button}>...Read more</button></div>
     </div>
   )
 }

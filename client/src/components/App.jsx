@@ -11,6 +11,7 @@ class App extends React.Component {
       ratings: [],
       filter: undefined,
       filtered_reviews:[],
+      active_reviews: [],
       }
   }
   render() {
@@ -56,6 +57,14 @@ class App extends React.Component {
       filtered_reviews: filteredRev,
     })
   }
+
+  // handleReadMore(event) {
+  //   //get id of the review that was clicked
+  //   let id=id; 
+  //   this.setState({
+  //     active_reviews.push(id);
+  //   })
+  // }
 }
 
 export default App;
