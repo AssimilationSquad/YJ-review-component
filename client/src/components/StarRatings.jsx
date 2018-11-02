@@ -1,6 +1,7 @@
 import React from 'react';
 import StarRatingEntry from './StarRatingEntry.jsx';
 import StarSummary from './StarSummary.jsx';
+import SearchBar from './SearchBar.jsx';
 import styles from '../Styles/StarCategory.css';
 
 function StarRatings(props) {
@@ -16,19 +17,27 @@ function StarRatings(props) {
   return (
     <div>
       <div>
-        <StarSummary className="star-summary" average={average} numReviews = {props.numReviews} className={styles.summary}/>
       </div>
       <div className="table" className={styles.table}>
-        <div className="col" className={styles.col}>
-          <StarRatingEntry key="Acc" category="Accuracy" stars={accuracy}/>
-          <StarRatingEntry key="Comm" category="Communication" stars={communication}/>
-          <StarRatingEntry key="Clean" category="Cleanliness" stars={cleanliness}/>
+        <div className="divider" className={styles.divider}></div>
+        <div className="row" className={styles.row}> 
+          <div className="cell" className={styles.cell}><StarSummary className="star-summary" average={average} numReviews = {props.numReviews} className={styles.summary}/></div>
+          <div className="cell" className={styles.cell}><SearchBar handler={props.handler}/></div>
         </div>
-        <div className="col" className={styles.col}>
-          <StarRatingEntry key="Loc" category="Location" stars={location}/>
-          <StarRatingEntry key="Check" category="Check-in" stars={checkin}/>
-          <StarRatingEntry key="Val" category="Value" stars={value}/>
+        <div className="divider" className={styles.divider}></div>
+        <div className="row" className={styles.row}> 
+          <div className="cell" className={styles.cell}><StarRatingEntry key="Acc" category="Accuracy" stars={accuracy}/></div>
+          <div className="cell" className={styles.cell}><StarRatingEntry key="Loc" category="Location" stars={location}/></div>
         </div>
+        <div className="row" className={styles.row}>
+          <div className="cell" className={styles.cell}><StarRatingEntry key="Comm" category="Communication" stars={communication}/></div>
+          <div className="cell" className={styles.cell}><StarRatingEntry key="Check" category="Check-in" stars={checkin}/></div>
+        </div>
+        <div className="row" className={styles.row}>
+          <div className="cell" className={styles.cell}><StarRatingEntry key="Clean" category="Cleanliness" stars={cleanliness}/></div>
+          <div className="cell" className={styles.cell}><StarRatingEntry key="Val" category="Value" stars={value}/></div>
+        </div>
+        <div className="divider" className={styles.divider}></div>
       </div>
     </div>
   )

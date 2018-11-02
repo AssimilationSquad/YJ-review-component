@@ -12,7 +12,7 @@ function RatingEntry(props) {
     }
 
     if (halfRating >= 0.5) {
-      stars.push(<i key={baseRating} className="fa fa-star-half-full" ></i>)
+      stars.push( <i key={baseRating} className="fa fa-star-half-full"></i>)
       blankStars -= 1; 
     } 
 
@@ -21,9 +21,9 @@ function RatingEntry(props) {
     }
 
     return (
-      <div className="star-category">
-        <span>{props.category}</span>
-        <span className={styles.fa}>{stars}</span>
+      <div className={styles.row}>
+        <div className={styles.cell}> {props.category}</div>
+        <div className={styles.cell} className={styles.fa}>{stars}</div>
       </div>
     )
 }
