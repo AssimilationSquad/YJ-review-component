@@ -1,7 +1,6 @@
 import React from 'react';
 import ReviewList from './ReviewList.jsx';
 import StarRatings from './StarRatings.jsx';
-import SearchBar from './SearchBar.jsx';
 import styles from '../Styles/App.css';
 
 class App extends React.Component {
@@ -12,25 +11,23 @@ class App extends React.Component {
       ratings: [],
       filter: undefined,
       filtered_reviews:[],
+      active_reviews: [],
       }
   }
   render() {
     if (this.state.filtered_reviews.length === 0 || this.state.filter === '') {
       return (
-        <div>
-          <SearchBar handler={this.handleSearch.bind(this)}/>
-          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
-          <div className="divider" className={styles.divider}></div>
-          <ReviewList reviews={this.state.reviews} />
+        <div className="app">
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
+          <ReviewList reviews={this.state.reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
         </div>
       )
     } else {
       return (
-        <div>
-          <SearchBar handler={this.handleSearch.bind(this)}/>
-          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length}/>
-          <p>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
-          <ReviewList reviews={this.state.filtered_reviews} />
+        <div className="app">
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
+          <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
+          <ReviewList reviews={this.state.filtered_reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
         </div>
       )
     }
@@ -58,6 +55,13 @@ class App extends React.Component {
     this.setState({
       filter: searchTerm,
       filtered_reviews: filteredRev,
+    })
+  }
+
+  handleReadMore(id) {
+    let updated = this.state.active_reviews.concat([Number(id)]);
+    this.setState({
+      active_reviews: updated,
     })
   }
 }
