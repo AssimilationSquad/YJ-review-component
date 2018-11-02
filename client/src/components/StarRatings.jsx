@@ -17,8 +17,6 @@ function StarRatings(props) {
   return (
     <div>
       <div>
-       
-        
       </div>
       <div className="table" className={styles.table}>
         <div className="divider" className={styles.divider}></div>

@@ -12,7 +12,7 @@ function RatingEntry(props) {
     }
 
     if (halfRating >= 0.5) {
-      stars.push(<i key={baseRating} className="fa fa-star-half-full" ></i>)
+      stars.push( <i key={baseRating} className="fa fa-star-half-full"></i>)
       blankStars -= 1; 
     } 
 

@@ -18,7 +18,6 @@ class App extends React.Component {
       return (
         <div>
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
-          <div className="divider" className={styles.divider}></div>
           <ReviewList reviews={this.state.reviews} />
         </div>
       )

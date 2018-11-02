@@ -10,6 +10,10 @@
   color: #008489;
 }
 
+i {
+  padding: 2px;
+}
+
 .table {
   composes: common;
   display: flex;
@@ -25,7 +29,7 @@
 .cell {
   composes: common;
   display: flex;
-  flex-grow: 1;
+  flex-basis: 50%;
 }
 
 .summary {
