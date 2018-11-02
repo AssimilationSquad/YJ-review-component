@@ -2,7 +2,6 @@ import React from 'react';
 import styles from '../Styles/Search.css';
 
 function SearchBar(props) {
-  console.log("Search bar props are ", props);
   return (
     <div className={styles.search}>
       <form className="search-input">

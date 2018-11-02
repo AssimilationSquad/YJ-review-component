@@ -25,12 +25,14 @@ i {
   composes: common;
   display: flex;
   flex-direction: row;
+  flex-grow: 1;
 }
 
 .cell {
   composes: common;
   display: flex;
   flex-basis: 50%;
+  align-content: flex-start;
 }
 
 .starsum {
