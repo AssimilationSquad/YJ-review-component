@@ -19,7 +19,7 @@ class App extends React.Component {
       return (
         <div className="app">
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
-          <ReviewList reviews={this.state.reviews} />
+          <ReviewList reviews={this.state.reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
         </div>
       )
     } else {
@@ -27,7 +27,7 @@ class App extends React.Component {
         <div className="app">
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
           <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
-          <ReviewList reviews={this.state.filtered_reviews} />
+          <ReviewList reviews={this.state.filtered_reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
         </div>
       )
     }
@@ -58,13 +58,12 @@ class App extends React.Component {
     })
   }
 
-  // handleReadMore(event) {
-  //   //get id of the review that was clicked
-  //   let id=id; 
-  //   this.setState({
-  //     active_reviews.push(id);
-  //   })
-  // }
+  handleReadMore(id) {
+    let updated = this.state.active_reviews.concat([Number(id)]);
+    this.setState({
+      active_reviews: updated,
+    })
+  }
 }
 
 export default App;
