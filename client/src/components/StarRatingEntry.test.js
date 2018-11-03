@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, text } from 'enzyme';
+import { mount } from 'enzyme';
 
 import StarRatingEntry from './StarRatingEntry';
 

@@ -5,7 +5,6 @@ function SearchBar(props) {
   return (
     <div className={styles.search}>
       <form className="search-input">
-        {/* <i className="material-icons">search</i> */}
         <input type="text"
         id="search" 
         name="searchBar" 
