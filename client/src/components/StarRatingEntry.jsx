@@ -22,7 +22,7 @@ function RatingEntry(props) {
 
     return (
       <div className={styles.row}>
-        <div className={styles.cell}> {props.category}</div>
+        <div type="categoryName" className={styles.cell}> {props.category}</div>
         <div className={styles.cell} className={styles.fa}>{stars}</div>
       </div>
     )
