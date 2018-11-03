@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewListEntry renders the component correctly 1`] = `
+<div
+  className="reviewListEntry"
+>
+  <div
+    className="img"
+  >
+    <img
+      height="48"
+      weight="48"
+    />
+  </div>
+  <div
+    className="name"
+  />
+  <div
+    className="date"
+  >
+    November 2018
+  </div>
+  <div
+    className="reviewBody"
+  >
+    
+    <button
+      className="button"
+      onClick={[Function]}
+      style={
+        Object {
+          "visibility": "hidden",
+        }
+      }
+    >
+      ...Read more
+    </button>
+  </div>
+</div>
+`;

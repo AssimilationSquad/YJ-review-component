@@ -23,10 +23,14 @@ class App extends React.Component {
         </div>
       )
     } else {
+      let message = ' guests have mentioned ';
+      if (this.state.filtered_reviews.length === 1) {
+        message = ' guest has mentioned ';
+      }
       return (
         <div className="app">
           <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
-          <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} guests have mentioned "{this.state.filter}" </p>
+          <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} {message} "{this.state.filter}" </p>
           <ReviewList reviews={this.state.filtered_reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
         </div>
       )
