@@ -4,7 +4,7 @@ import { mount, shallow } from 'enzyme';
 
 import ReviewListEntry from './ReviewListEntry';
 
-describe("LockScreen", () => {
+describe("ReviewListEntry", () => {
   let props = undefined;
   let mountedReviewListEntry = undefined;
   const reviewListEntry = () => {
