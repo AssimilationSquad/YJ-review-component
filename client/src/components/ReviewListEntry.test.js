@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import ReviewListEntry from './ReviewListEntry';
 
@@ -44,11 +44,5 @@ describe("LockScreen", () => {
     const button = reviewListEntry().find("button");
     expect(button.length).toBe(1);
   });
-
-  // it ('receives an object as props', () => {
-  //   const button = reviewListEntry().find("button");
-  //   expect(button.length).toBe(1);
-  // });
-
 })
 
