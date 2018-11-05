@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> Guest review and rating component for Airbnb home listing simulation
 
 ## Related Projects
 
@@ -17,14 +17,12 @@
 
 ## Usage
 
-> Some usage instructions
+> Run 'npm install'
+> Open a terminal instance for the server and webpack
+> Run 'npm run react-dev' to run webpack
+> Run 'npm start' to run the node server
 
 ## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
 
 ## Development
 
