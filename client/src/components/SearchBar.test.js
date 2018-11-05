@@ -27,9 +27,9 @@ describe("SearchBar", () => {
     expect(divs.length).toBeGreaterThan(0);
   });
 
-  it ('renders a form', () => {
-    const form = searchBar().find('form');
-    expect(form.length).toBeGreaterThan(0);
+  it ('renders an input', () => {
+    const inputs = searchBar().find('input');
+    expect(inputs.length).toBeGreaterThan(0);
   });
 
   it ('calls the handler when user presses key', () => {
