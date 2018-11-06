@@ -10,8 +10,6 @@ app.use(express.static(path.join(__dirname, '../', 'client', 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname, '../client/dist')));
-
 app.get('/rooms/:homeid', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
