@@ -26,12 +26,12 @@
   font-weight: normal;
 }
 
-img {
+.thumbnail {
   border-radius: 50%;
   
 }
 
-button {
+.read_button {
   font-family: 'Nunito', sans-serif;
   color: #008489;
   padding: 4px;
