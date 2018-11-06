@@ -7,7 +7,7 @@
     "test": "jest",
     "start": "nodemon ./server/index.js",
     "react-dev": "webpack -d --watch --display-error-details",
-    "seed_db": "node ./database/seedUsers.js | node ./database/seedReviews.js"
+    "seed_db": "mysql -u root < ./database/schema.sql | node ./database/seedUsers.js | node ./database/seedReviews.js"
   },
   "jest": {
     "moduleNameMapper": {
