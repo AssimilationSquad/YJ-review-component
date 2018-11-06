@@ -17,7 +17,8 @@
 
 ## Usage
 
-- [ ] Run 'npm install'
+- [ ] Run 'npm install' to install dependencies
+- [ ] Run 'npm run seed_db' to create and seed MySQL database
 - [ ] Open a terminal instance for the server and webpack
 - [ ] Run 'npm run react-dev' to run webpack
 - [ ] Run 'npm start' to run the node server
