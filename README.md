@@ -18,6 +18,7 @@
 ## Usage
 
 - [ ] Run 'npm install' to install dependencies
+- [ ] Modify ./database/index.js to use your MySQL password
 - [ ] To create database and tables, run in terminal: 'mysql -u root -p < ./database/schema.sql'
 - [ ] Run 'npm run seed_db' to seed MySQL database
 - [ ] Open a terminal instance for the server and webpack
