@@ -19,8 +19,7 @@ function ReviewListEntry(props) {
       <div className={styles.date}>{moment(date).format('MMMM YYYY')}</div>
       <div className={styles.reviewBody}>
         {preview}
-        // eslint-disable-next-line react/button-has-type
-        <button id={review.Review_id} onClick={(ev) => { props.handler(ev.target.id); }} style={{ visibility: buttonVisible }} className={styles.read_button}>...Read more</button>
+        <button type="button" id={review.Review_id} onClick={(ev) => { props.handler(ev.target.id); }} style={{ visibility: buttonVisible }} className={styles.read_button}>...Read more</button>
       </div>
     </div>
   );

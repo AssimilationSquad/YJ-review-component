@@ -5,35 +5,13 @@ import styles from '../Styles/App.css';
 
 class App extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       reviews: [],
       ratings: [],
       filter: undefined,
-      filtered_reviews:[],
+      filtered_reviews: [],
       active_reviews: [],
-      }
-  }
-  render() {
-    if (this.state.filtered_reviews.length === 0 || this.state.filter === '') {
-      return (
-        <div className="app">
-          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
-          <ReviewList reviews={this.state.reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
-        </div>
-      )
-    } else {
-      let message = ' guests have mentioned ';
-      if (this.state.filtered_reviews.length === 1) {
-        message = ' guest has mentioned ';
-      }
-      return (
-        <div className="app">
-          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
-          <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} {message} "{this.state.filter}" </p>
-          <ReviewList reviews={this.state.filtered_reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
-        </div>
-      )
     }
   }
 
@@ -67,6 +45,29 @@ class App extends React.Component {
     this.setState({
       active_reviews: updated,
     })
+  }
+
+  render() {
+    if (this.state.filtered_reviews.length === 0 || this.state.filter === '') {
+      return (
+        <div className="app">
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
+          <ReviewList reviews={this.state.reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
+        </div>
+      )
+    } else {
+      let message = ' guests have mentioned ';
+      if (this.state.filtered_reviews.length === 1) {
+        message = ' guest has mentioned ';
+      }
+      return (
+        <div className="app">
+          <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch.bind(this)}/>
+          <p className="filter" className={styles.filter}>{this.state.filtered_reviews.length} {message} "{this.state.filter}" </p>
+          <ReviewList reviews={this.state.filtered_reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore.bind(this)}/>
+        </div>
+      )
+    }
   }
 }
 
