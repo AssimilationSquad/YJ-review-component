@@ -65,7 +65,7 @@ class App extends React.Component {
       <div className="app">
         <StarRatings ratings={this.state.ratings} numReviews={this.state.reviews.length} handler={this.handleSearch} />
         <p className={styles.filter}>
-          {`{this.state.filtered_reviews.length} ${message} {this.state.filter}`}
+          {`${this.state.filtered_reviews.length} ${message} ${this.state.filter}`}
         </p>
         <ReviewList reviews={this.state.filtered_reviews} expanded={this.state.active_reviews} handleExpand={this.handleReadMore} />
       </div>
