@@ -4,7 +4,7 @@ const path = require('path');
 const helpers = require('./queryHelpers.js');
 
 const app = express();
-const port = 3002;
+const port = 80;
 
 app.use(express.static(path.join(__dirname, '../', 'client', 'dist')));
 app.use(bodyParser.json());

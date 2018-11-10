@@ -1,6 +1,6 @@
-CREATE DATABASE IF NOT EXISTS Reviews_db;
+CREATE DATABASE IF NOT EXISTS reviewsdb;
 
-USE Reviews_db;
+USE reviewsdb;
 
 CREATE TABLE IF NOT EXISTS Users_tbl (
   User_id INT AUTO_INCREMENT,

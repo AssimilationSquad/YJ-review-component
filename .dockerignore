@@ -1,0 +1,6 @@
+test
+client/src
+node_modules
+.gitignore
+webpack.config.js
+*.md
