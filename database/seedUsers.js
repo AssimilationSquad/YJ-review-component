@@ -1,5 +1,4 @@
 const faker = require('faker');
-const mysql = require('mysql');
 const connection = require('../database/index.js');
 
 const insertUser = function insertUser() {

@@ -1,14 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const compression = require('compression');
 const helpers = require('./queryHelpers.js');
 
 const app = express();
-const port = 3002;
+const port = 80;
 
 app.use(express.static(path.join(__dirname, '../', 'client', 'dist')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression());
 
 app.get('/rooms/:homeid', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/dist/index.html'));
